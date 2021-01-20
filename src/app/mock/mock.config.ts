@@ -8,6 +8,12 @@ export default {
         },
         'https://frontend-quiz.com/api/quiz-questions/all/1': {
             handler: getQuizQuestions
+        },
+        'https://frontend-quiz.com/api/quiz-questions/all/2': {
+            handler: getQuizQuestions
+        },
+        'https://frontend-quiz.com/api/quiz-questions/all/3': {
+            handler: getQuizQuestions
         }
     },
     POST: {
@@ -23,17 +29,17 @@ function getQuizList() {
             {
                 id: 1,
                 name: 'HTML5 Quiz',
-                description: ''
+                description: 'The quiz tests your understanding of HTML5 and its usage'
             },
             {
                 id: 2,
                 name: 'CSS Quiz',
-                description: ''
+                description: 'The quiz tests your understanding of Cascading Style Sheets'
             },
             {
                 id: 3,
                 name: 'JavaScript Quiz',
-                description: ''
+                description: 'The quiz tests your understanding of basic to advanced JavaScript concepts'
             }
         ]
     }))
@@ -43,7 +49,7 @@ function getQuizQuestions() {
     return of(new HttpResponse({
         status: 200, body: {
             name: 'HTML5 Quiz',
-            description: '',
+            description: 'The quiz tests your understanding of HTML5 and its usage',
             questions: [
                 {
                     id: 1,
