@@ -1,0 +1,37 @@
+<div class="quiz-wrapper">
+  <ng-container *ngIf="quizQuestions?.questions">
+    <h1 class="quiz-header">{{quizQuestions.quizName}}</h1>
+    <ng-container *ngIf="qnIndex < quizQuestions.questions.length">
+      <section class="quiz-timing">
+        <div id="progress-bar">
+          <div appProgress [qnIndex]="qnIndex" [qnCount]="quizQuestions.questions.length" id="progress-status"></div>
+        </div>
+        <div class="timer">Time Remaining: 0:{{totalSeconds | padStart : 2 : '0'}} / 0:15 seconds</div>
+      </section>
+      <section class="card" *ngIf="totalSeconds !== 0">
+        <div class="question card-header">{{quizQuestions.questions[qnIndex].question}}</div>
+        <div *ngFor="let option of quizQuestions.questions[qnIndex].options; let i = index">
+          <div class="option-{{i+1}}" (click)="onSelection(quizQuestions.questions[qnIndex].qnId, i)">
+            <ul class="bord-top">
+              <li>{{option}}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </ng-container>
+    <ng-container *ngIf="quizResult?.questions && qnIndex === quizQuestions.questions.length">
+      <h1 class="score hor-center">You've scored {{quizResult.score}} points</h1>
+      <section class="card mar-top-0">
+        <h4 class="card-header">Answers</h4>
+        <div class="card-body bord-top" *ngFor="let resultItem of quizResult.questions; let i = index">
+          <div>{{resultItem.question}}</div>
+          <div>
+            Your Answer: <span
+              [ngClass]="[resultItem.submittedOption===resultItem.correctOption? 'text-green' : 'text-red']">{{resultItem.submittedOption}}</span>
+          </div>
+          <div>Correct Answer: <em>{{resultItem.correctOption}}</em></div>
+        </div>
+      </section>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,9 +1,10 @@
 {
-  "name": "timed-quiz",
+  "name": "frontend-quiz",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:mock": "ng serve --c=mock",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
