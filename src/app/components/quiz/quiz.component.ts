@@ -18,7 +18,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   quizAnswers: any;
   quizResult: any;
   timer: any;
-  totalSeconds = 3;
+  totalSeconds = 15;
   destroy$ = new Subject<boolean>();
 
   constructor(private readonly activatedRoute: ActivatedRoute, private readonly quizService: QuizService) {
@@ -43,12 +43,12 @@ export class QuizComponent implements OnInit, OnDestroy {
   }
 
   startTimer() {
-    this.totalSeconds = 3;
+    this.totalSeconds = 15;
     this.timer = setInterval(() => {
       this.totalSeconds--;
       if (this.totalSeconds === -1) {
         this.qnIndex++;
-        this.totalSeconds = 3;
+        this.totalSeconds = 15;
         if (this.qnIndex === this.quizQuestions.questions.length) {
           this.getScore();
         }

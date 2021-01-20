@@ -1,5 +1,6 @@
 export interface QuizResult {
     score: number;
+    totalPoints: number;
     questions: Questions[];
 }
 

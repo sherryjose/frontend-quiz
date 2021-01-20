@@ -20,16 +20,24 @@
       </section>
     </ng-container>
     <ng-container *ngIf="quizResult?.questions && qnIndex === quizQuestions.questions.length">
-      <h1 class="score hor-center">You've scored {{quizResult.score}} points</h1>
+      <div class="hor-center">
+        <h1 class="score">You've scored {{quizResult.score}}
+          <span *ngIf="quizResult.score > 1">points</span>
+          <span *ngIf="quizResult.score === 1">point</span>
+        </h1>
+        <button type="button" class="btn mar-bot" [routerLink]="['/']">Home</button>
+      </div>
       <section class="card mar-top-0">
         <h4 class="card-header">Answers</h4>
         <div class="card-body bord-top" *ngFor="let resultItem of quizResult.questions; let i = index">
-          <div>{{resultItem.question}}</div>
-          <div>
-            Your Answer: <span
+          <article>
+            <div>Q: {{resultItem.question}}</div>
+            <div>A: {{resultItem.correctOption}}</div>
+          </article>
+          <small>
+            Your answer: <span
               [ngClass]="[resultItem.submittedOption===resultItem.correctOption? 'text-green' : 'text-red']">{{resultItem.submittedOption}}</span>
-          </div>
-          <div>Correct Answer: <em>{{resultItem.correctOption}}</em></div>
+          </small>
         </div>
       </section>
     </ng-container>

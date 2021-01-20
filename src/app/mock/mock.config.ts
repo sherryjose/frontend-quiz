@@ -84,15 +84,16 @@ function saveAnswers() {
             questions: [
                 {
                     qnId: 1,
-                    submittedOption: '',
-                    correctOption: ''
+                    submittedOption: 'bb',
+                    correctOption: 'nn'
                 }, {
                     qnId: 2,
-                    submittedOption: '',
-                    correctOption: ''
+                    submittedOption: 'bb',
+                    correctOption: 'bb'
                 }
             ],
-            score: 0
+            score: 6,
+            totalPoints: 10
         }
     }))
 }
