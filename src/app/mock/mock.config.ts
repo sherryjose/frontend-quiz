@@ -90,12 +90,22 @@ function saveAnswers() {
             questions: [
                 {
                     qnId: 1,
-                    submittedOption: 'bb',
-                    correctOption: 'nn'
+                    submittedOption: 'op1',
+                    correctOption: 'op2'
                 }, {
                     qnId: 2,
-                    submittedOption: 'bb',
-                    correctOption: 'bb'
+                    submittedOption: 'op1',
+                    correctOption: 'op1'
+                },
+                {
+                    qnId: 3,
+                    submittedOption: 'op1',
+                    correctOption: 'op4'
+                },
+                {
+                    qnId: 4,
+                    submittedOption: 'op1',
+                    correctOption: 'op1'
                 }
             ],
             score: 6,
