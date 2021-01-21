@@ -6,13 +6,7 @@ export default {
         'https://frontend-quiz.com/api/quiz/all': {
             handler: getQuizList
         },
-        'https://frontend-quiz.com/api/quiz-questions/all/1': {
-            handler: getQuizQuestions
-        },
-        'https://frontend-quiz.com/api/quiz-questions/all/2': {
-            handler: getQuizQuestions
-        },
-        'https://frontend-quiz.com/api/quiz-questions/all/3': {
+        'https://frontend-quiz.com/api/quiz-questions/all': {
             handler: getQuizQuestions
         }
     },
@@ -45,7 +39,7 @@ function getQuizList() {
     }))
 }
 
-function getQuizQuestions() {
+function getQuizQuestions(quizId) {
     return of(new HttpResponse({
         status: 200, body: {
             name: 'HTML5 Quiz',
@@ -84,7 +78,7 @@ function getQuizQuestions() {
     }))
 }
 
-function saveAnswers() {
+function saveAnswers(body) {
     return of(new HttpResponse({
         status: 200, body: {
             questions: [

@@ -5,10 +5,18 @@ import { default as mockEndpoints } from './mock.config';
 
 @Injectable()
 export class HttpMockApiInterceptor implements HttpInterceptor {
-
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let currentMockEndpoint;
-        currentMockEndpoint = mockEndpoints[request.method] && mockEndpoints[request.method][request.url] || null;
-        return currentMockEndpoint ? currentMockEndpoint.handler() : next.handle(request);
+        let endpoint;
+        endpoint = mockEndpoints[request.method] && mockEndpoints[request.method][request.url] || null;
+        switch (true) {
+            case request.url.includes('quiz-questions'):
+                const quizId = request.url.slice(request.url.lastIndexOf('/') + 1);
+                endpoint = mockEndpoints[request.method] && mockEndpoints[request.method][request.url.replace(`/${quizId}`, '')];
+                return endpoint.handler(quizId);
+            case request.url.includes('quiz-score'):
+                return endpoint.handler(request.body);
+            default:
+                return endpoint ? endpoint.handler() : next.handle(request);
+        }
     }
 }
