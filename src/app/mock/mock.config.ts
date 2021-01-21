@@ -1,5 +1,6 @@
 import { HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
+import { mockData } from './mock.constants';
 
 export default {
     GET: {
@@ -19,91 +20,31 @@ export default {
 
 function getQuizList() {
     return of(new HttpResponse({
-        status: 200, body: [
-            {
-                id: 1,
-                name: 'HTML5 Quiz',
-                description: 'The quiz tests your understanding of HTML5 and its usage'
-            },
-            {
-                id: 2,
-                name: 'CSS Quiz',
-                description: 'The quiz tests your understanding of Cascading Style Sheets'
-            },
-            {
-                id: 3,
-                name: 'JavaScript Quiz',
-                description: 'The quiz tests your understanding of basic to advanced JavaScript concepts'
-            }
-        ]
-    }))
+        status: 200, body: mockData.quizList
+    }));
 }
 
 function getQuizQuestions(quizId) {
     return of(new HttpResponse({
         status: 200, body: {
-            name: 'HTML5 Quiz',
-            description: 'The quiz tests your understanding of HTML5 and its usage',
-            questions: [
-                {
-                    id: 1,
-                    question: 'qn1',
-                    options: 'op1,op2,op3,op4',
-                    quizId: 1,
-                    points: 1
-                },
-                {
-                    id: 2,
-                    question: 'qn2',
-                    options: 'op1,op2,op3,op4',
-                    quizId: 1,
-                    points: 1
-                },
-                {
-                    id: 3,
-                    question: 'qn3',
-                    options: 'op1,op2,op3,op4',
-                    quizId: 1,
-                    points: 1
-                },
-                {
-                    id: 4,
-                    question: 'qn4',
-                    options: 'op1,op2,op3,op4',
-                    quizId: 1,
-                    points: 1
-                }
-            ]
+            name: mockData.quizList.find(item => item.id === +quizId).name,
+            description: mockData.quizList.find(item => item.id === +quizId).description,
+            questions: mockData.quizQuestions.filter(item => item.quizId === +quizId)
+                .map(({ id, question, options }) => ({ id, question, options }))
         }
-    }))
+    }));
 }
 
 function saveAnswers(body) {
     return of(new HttpResponse({
         status: 200, body: {
-            questions: [
-                {
-                    qnId: 1,
-                    submittedOption: 'op1',
-                    correctOption: 'op2'
-                }, {
-                    qnId: 2,
-                    submittedOption: 'op1',
-                    correctOption: 'op1'
-                },
-                {
-                    qnId: 3,
-                    submittedOption: 'op1',
-                    correctOption: 'op4'
-                },
-                {
-                    qnId: 4,
-                    submittedOption: 'op1',
-                    correctOption: 'op1'
-                }
-            ],
-            score: 6,
-            totalPoints: 10
+            questions: mockData.quizQuestions.filter(item => item.quizId === body.quizId).map(qn => ({
+                qnId: qn.id,
+                submittedOption: body.mappings.find(item => item.qnId === qn.id)?.submittedOption || '',
+                correctOption: qn.correctOption
+            })),
+            score: mockData.quizQuestions.filter(qn => body.mappings.map(item => item.qnId).includes(qn.id)).filter(qn => qn.correctOption === body.mappings.find(item => item.qnId === qn.id).submittedOption).map(item => item.points).reduce((prev, curr) => prev + curr, 0),
+            totalPoints: mockData.quizQuestions.filter(item => item.quizId === body.quizId).map(item => item.points).reduce((prev, curr) => prev + curr, 0)
         }
-    }))
+    }));
 }

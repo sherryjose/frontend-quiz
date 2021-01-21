@@ -8,6 +8,4 @@ interface Questions {
     id: number;
     question: string;
     options: string;
-    quizId: number;
-    points: number;
 }

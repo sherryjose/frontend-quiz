@@ -72,13 +72,14 @@ export class QuizComponent implements OnInit, OnDestroy {
     clearInterval(this.timer);
     this.quizAnswers.quizId = this.quizId;
     this.quizService.getQuizScore(this.quizAnswers).pipe(takeUntil(this.destroy$))
-      .subscribe((data: QuizResult) => {
+      .subscribe(({ score, totalPoints, questions }: QuizResult) => {
         this.quizResult = {
-          score: data.score,
-          questions: data.questions.map(elem => ({
-            question: this.quizQuestions.questions.filter(qn => qn.qnId === elem.qnId)[0].question,
-            submittedOption: elem.submittedOption,
-            correctOption: elem.correctOption
+          score,
+          totalPoints,
+          questions: questions.map(({ qnId, submittedOption, correctOption }) => ({
+            question: this.quizQuestions.questions.filter(qn => qn.qnId === qnId)[0].question,
+            submittedOption,
+            correctOption
           }))
         };
       });

@@ -6,7 +6,9 @@
         <div id="progress-bar">
           <div appProgress [qnIndex]="qnIndex" [qnCount]="quizQuestions.questions.length" id="progress-status"></div>
         </div>
-        <div class="timer">Time Remaining: 0:{{totalSeconds | padStart : 2 : '0'}} / 0:15 seconds</div>
+        <div class="timer">Time Remaining: <strong
+            [ngClass]="[totalSeconds > 5 ? 'text-green' : 'text-red']">0:{{totalSeconds >= 10 ? totalSeconds :
+            totalSeconds | padStart : 2 : '0'}}</strong> / 0:15 seconds</div>
       </section>
       <section class="card" *ngIf="totalSeconds !== 0">
         <div class="question card-header">{{quizQuestions.questions[qnIndex].question}}</div>
@@ -21,10 +23,7 @@
     </ng-container>
     <ng-container *ngIf="quizResult?.questions && qnIndex === quizQuestions.questions.length">
       <div class="hor-center">
-        <h1 class="score">You've scored {{quizResult.score}}
-          <span *ngIf="quizResult.score > 1">points</span>
-          <span *ngIf="quizResult.score === 1">point</span>
-        </h1>
+        <h1 class="score">You've scored {{quizResult.score}} out of {{quizResult.totalPoints}} points</h1>
         <button type="button" class="btn mar-bot" [routerLink]="['/']">Home</button>
       </div>
       <section class="card mar-top-0">
@@ -36,7 +35,7 @@
           </article>
           <small>
             Your answer: <span
-              [ngClass]="[resultItem.submittedOption===resultItem.correctOption? 'text-green' : 'text-red']">{{resultItem.submittedOption}}</span>
+              [ngClass]="[resultItem.submittedOption === resultItem.correctOption ? 'text-green' : 'text-red']">{{resultItem.submittedOption}}</span>
           </small>
         </div>
       </section>
