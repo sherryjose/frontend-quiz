@@ -6,9 +6,9 @@ Below is the behaviour of the application:
 3.	The final page shows the score obtained in the quiz, along with correct answers. User is given the choice to go back to the home page and attempt any quiz.
 
 Angular features used:
-•	Custom pad-start pipe to transform the timer display
-•	Custom progress bar attribute directive that helps indicate the number of questions navigated through the quiz
-•	A mock module that provides an http interceptor which handles the fetching of mock data (ref: https://firstclassjs.com/mock-fake-backend-api-in-angular-how-to/)
+- Custom pad-start pipe to transform the timer display
+- Custom progress bar attribute directive that helps indicate the number of questions navigated through the quiz
+- A mock module that provides an http interceptor which handles the fetching of mock data (ref: https://firstclassjs.com/mock-fake-backend-api-in-angular-how-to/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
