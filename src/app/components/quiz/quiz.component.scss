@@ -43,7 +43,7 @@
             font-size: 1.17rem;
         }
 
-        div[class^="option"]>ul {
+        div[class^='option']>ul {
             margin: 0;
             padding-top: 0.7rem;
             padding-bottom: 0.7rem;
@@ -57,7 +57,7 @@
 
             li {
                 &::before {
-                    content: "\2744";
+                    content: '\2744';
                     color: #4a6ee0;
                     padding: 0.7rem;
                 }
@@ -65,13 +65,13 @@
         }
 
         .card-body {
-            padding: 1rem;
+            padding: 0.6rem;
 
             >article {
                 padding: 0.5rem;
                 margin-bottom: 3px;
-                border-radius: 3px;
-                background-color: #e7edff;
+                border-radius: 5px;
+                box-shadow: 4px 4px 5px grey inset;
 
                 >div {
                     padding: 0.1rem;

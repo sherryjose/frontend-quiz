@@ -34,7 +34,7 @@ export class QuizComponent implements OnInit, OnDestroy {
           questions: data.questions.map(elem => ({
             qnId: elem.id,
             question: elem.question,
-            options: elem.options.split(',')
+            options: elem.options.split('|')
           }))
         };
         this.qnIndex = 0;
@@ -54,6 +54,10 @@ export class QuizComponent implements OnInit, OnDestroy {
         }
       }
     }, 1000);
+  }
+
+  displayCurrentQuestion() {
+    document.querySelector('.question').innerHTML = this.quizQuestions.questions[this.qnIndex].question;
   }
 
   onSelection(qnId, optionIndex) {
@@ -83,6 +87,10 @@ export class QuizComponent implements OnInit, OnDestroy {
           }))
         };
       });
+  }
+
+  displayQuestion(index) {
+    document.getElementById(`ques${index + 1}`).innerHTML = this.quizResult.questions[index]?.question;
   }
 
   ngOnDestroy() {

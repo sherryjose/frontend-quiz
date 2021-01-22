@@ -2,8 +2,8 @@ export const mockData = {
     quizList: [
         {
             id: 1,
-            name: 'HTML5 Quiz',
-            description: 'The quiz tests your understanding of HTML5 and its usage'
+            name: 'HTML Quiz',
+            description: 'The quiz tests your understanding of HTML and its usage'
         },
         {
             id: 2,
@@ -19,50 +19,50 @@ export const mockData = {
     quizQuestions: [
         {
             id: 1,
-            question: 'qn1',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op1',
+            question: 'Which of the following is not a semantic HTML5 element?',
+            options: '<details>|<date>|<mark>|<time>',
+            correctOption: '<date>',
             quizId: 1,
             points: 1
         },
         {
             id: 2,
-            question: 'qn2',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op1',
+            question: 'Which form tag attribute helps to bypass validation?',
+            options: 'novalidate|formnovalidate|either novalidate or formnovalidate|None of the above',
+            correctOption: 'novalidate',
             quizId: 1,
             points: 1
         },
         {
             id: 3,
-            question: 'qn3',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op1',
+            question: 'What does the below html code aid in?<br>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;',
+            options: 'Search Engine Optimization|Responsive Web Design|Both of the above|None of the above',
+            correctOption: 'Both of the above',
             quizId: 1,
             points: 1
         },
         {
             id: 4,
-            question: 'qn4',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op1',
+            question: 'Which of the following is not an HTML event?',
+            options: 'onpopstate|onerror|onoffline|onhide',
+            correctOption: 'onhide',
             quizId: 1,
             points: 1
         },
         {
             id: 5,
-            question: 'qn5',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op1',
+            question: 'Fill in the blanks such that img_large.jpg and img_medium.jpg get displayed for large and medium screen widths respectively.<br>&lt;picture&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:___)" srcset="img_large.jpg"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:___)" srcset="img_medium.jpg"&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="img_small.jpg" alt="small image" style="width:auto;"&gt;<br>&lt;/picture&gt;',
+            options: `768px, 992px|992px, 768px|Both of the above|None of the above`,
+            correctOption: '992px, 768px',
             quizId: 1,
             points: 1
         },
         {
             id: 6,
-            question: 'qn6',
-            options: 'op1,op2,op3,op4',
-            correctOption: 'op2',
-            quizId: 2,
+            question: '&lt;input type="search" id="search" name="search" pattern="___"&gt;<br>Choose the regex to validate if the search input contains only numbers.',
+            options: '\\D+|\\d+|\\w+|[^A-Za-z]+',
+            correctOption: '\\d+',
+            quizId: 1,
             points: 1
         },
         {
