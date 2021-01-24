@@ -2,7 +2,7 @@
 
 Below is the behaviour of the application:
 1.	The home page lists out each quiz with its respective name and description. User can choose to start any quiz from the page.
-2.	The quiz questions are shown one after the other. The next question gets displayed automatically either when the user selects an option or when the time limit of 15 seconds expires for a question.
+2.	The quiz questions are shown one after the other. The next question gets displayed automatically either when the user selects an option or when the time limit expires for a question.
 3.	The final page shows the score obtained in the quiz, along with correct answers. User is given the choice to go back to the home page and attempt any quiz.
 
 Angular features used:
