@@ -46,14 +46,14 @@ export const mockData = {
         },
         {
             id: 4,
-            question: `Choose the option such that img_large.jpg and img_medium.jpg get displayed for large(>=992px) and medium(768px to 991px) screen widths respectively.<br>
+            question: `Choose the option such that img_large.jpg and img_medium.jpg get displayed for large and medium screen widths respectively.<br>
             &lt;picture&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="img_large.jpg"&gt;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="img_medium.jpg"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="________.jpg"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="________.jpg"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="img_small.jpg" alt="small image" style="width:auto;"&gt;<br>
             &lt;/picture&gt;`,
-            options: `768px, 992px|992px, 768px|Either of the above|None of the above`,
-            correctOption: '992px, 768px',
+            options: `[768px, img_medium] and [992px, img_large]|[992px, img_large] and [768px, img_medium]|Either of the above|None of the above`,
+            correctOption: '[992px, img_large] and [768px, img_medium]',
             quizId: 1,
             points: 1
         },
