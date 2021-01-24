@@ -24,13 +24,14 @@ function getQuizList() {
     }));
 }
 
-function getQuizQuestions(quizId) {
+function getQuizQuestions(quizId: number) {
     return of(new HttpResponse({
         status: 200, body: {
-            name: mockData.quizList.find(item => item.id === +quizId).name,
-            description: mockData.quizList.find(item => item.id === +quizId).description,
-            questions: mockData.quizQuestions.filter(item => item.quizId === +quizId)
-                .map(({ id, question, options }) => ({ id, question, options }))
+            name: mockData.quizList.find(item => item.id === quizId).name,
+            time: mockData.quizList.find(item => item.id === quizId).time,
+            description: mockData.quizList.find(item => item.id === quizId).description,
+            questions: mockData.quizQuestions.filter(item => item.quizId === quizId)
+                .map(({ id, question, options }) => ({ id, question, options })),
         }
     }));
 }

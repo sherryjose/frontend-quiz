@@ -18,7 +18,7 @@ export class QuizComponent implements OnInit, OnDestroy {
   quizAnswers: any;
   quizResult: any;
   timer: any;
-  totalSeconds = 15;
+  totalSeconds: number;
   destroy$ = new Subject<boolean>();
 
   constructor(private readonly activatedRoute: ActivatedRoute, private readonly quizService: QuizService) {
@@ -31,24 +31,26 @@ export class QuizComponent implements OnInit, OnDestroy {
       .subscribe((data: QuizQuestions) => {
         this.quizQuestions = {
           quizName: data.name,
+          time: data.time,
           questions: data.questions.map(elem => ({
             qnId: elem.id,
             question: elem.question,
             options: elem.options.split('|')
           }))
         };
+        this.totalSeconds = data.time;
         this.qnIndex = 0;
         this.startTimer();
       });
   }
 
   startTimer() {
-    this.totalSeconds = 15;
+    this.totalSeconds = this.quizQuestions.time;
     this.timer = setInterval(() => {
       this.totalSeconds--;
       if (this.totalSeconds === -1) {
         this.qnIndex++;
-        this.totalSeconds = 15;
+        this.totalSeconds = this.quizQuestions.time;
         if (this.qnIndex === this.quizQuestions.questions.length) {
           this.getScore();
         }

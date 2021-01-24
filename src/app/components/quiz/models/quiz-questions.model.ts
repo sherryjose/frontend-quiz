@@ -2,6 +2,7 @@ export interface QuizQuestions {
     name: string;
     description: string;
     questions: Questions[];
+    time: number;
 }
 
 interface Questions {

@@ -8,7 +8,7 @@
         </div>
         <div class="timer">Time Remaining: <strong
             [ngClass]="[totalSeconds > 5 ? 'text-green' : 'text-red']">0:{{totalSeconds >= 10 ? totalSeconds :
-            totalSeconds | padStart : 2 : '0'}}</strong> / 0:15 seconds</div>
+            totalSeconds | padStart : 2 : '0'}}</strong> / 0:{{quizQuestions.time}} seconds</div>
       </section>
       <section class="card" *ngIf="totalSeconds !== 0">
         <div class="question card-header">{{displayCurrentQuestion()}}</div>

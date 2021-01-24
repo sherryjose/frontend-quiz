@@ -3,17 +3,20 @@ export const mockData = {
         {
             id: 1,
             name: 'HTML Quiz',
-            description: 'The quiz tests your understanding of HTML and its usage'
+            description: 'The quiz tests your understanding of HTML and its usage',
+            time: 15
         },
         {
             id: 2,
             name: 'CSS Quiz',
-            description: 'The quiz tests your understanding of Cascading Style Sheets'
+            description: 'The quiz tests your understanding of Cascading Style Sheets',
+            time: 20
         },
         {
             id: 3,
             name: 'JavaScript Quiz',
-            description: 'The quiz tests your understanding of basic to advanced JavaScript concepts'
+            description: 'The quiz tests your understanding of basic to advanced JavaScript concepts',
+            time: 30
         }
     ],
     quizQuestions: [
@@ -72,7 +75,7 @@ export const mockData = {
             options: 'screen|speech|print|All of the above',
             correctOption: 'All of the above',
             quizId: 2,
-            points: 1
+            points: 2
         },
         {
             id: 7,
@@ -96,10 +99,10 @@ export const mockData = {
                         &lt;/body&gt;<br><br>
 
                         &lt;/html&gt;`,
-            options: 'fuschia|green|orange|black',
+            options: 'fuchsia|green|orange|black',
             correctOption: 'orange',
             quizId: 2,
-            points: 1
+            points: 2
         },
         {
             id: 8,
@@ -107,7 +110,7 @@ export const mockData = {
             options: 'content-box|border-box|fit-content|None of the above',
             correctOption: 'content-box',
             quizId: 2,
-            points: 1
+            points: 2
         },
         {
             id: 9,
@@ -115,7 +118,7 @@ export const mockData = {
             options: 'column-rule-color|column-rule-style|column-rule-position|column-rule-width',
             correctOption: 'column-rule-position',
             quizId: 2,
-            points: 1
+            points: 2
         },
         {
             id: 10,
@@ -145,7 +148,7 @@ export const mockData = {
             options: ':nth-child(even)|:last-of-type|:nth-last-child(2n+1)|All of the above',
             correctOption: ':last-of-type',
             quizId: 2,
-            points: 1
+            points: 2
         },
         {
             id: 11,
@@ -153,36 +156,36 @@ export const mockData = {
             options: 'numeric separators (1_000_000)|Promise.any()|Promise.allSettled()|String.prototype.replaceAll()',
             correctOption: 'Promise.allSettled()',
             quizId: 3,
-            points: 1
+            points: 3
         },
         {
             id: 12,
-            question: `function* generator() {<br>
-                        &nbsp;&nbsp;yield 0;<br>
+            question: `function* generate() {<br>
                         &nbsp;&nbsp;yield 1;<br>
-                        &nbsp;&nbsp;yield Promise.resolve(2);<br>
+                        &nbsp;&nbsp;yield 2;<br>
                         &nbsp;&nbsp;yield Promise.resolve(3);<br>
-                        &nbsp;&nbsp;yield 4;<br>
+                        &nbsp;&nbsp;yield Promise.resolve(4);<br>
+                        &nbsp;&nbsp;yield 5;<br>
                         }<br><br>
 
                         (async function () {<br>
-                            &nbsp;&nbsp;for await (let num of generator()) {<br>
+                            &nbsp;&nbsp;for await (let num of generate()) {<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;console.log(num);<br>
                             &nbsp;&nbsp;}<br>
                         })();<br><br>
                         // OUTPUT<br>
-                        // 0<br>
                         // 1<br>
+                        // 2<br>
                         // ______<br>
                         // ______<br>
-                        // 4<br><br>
+                        // 5<br><br>
 
                         Fill in with the right output values.
             `,
-            options: '2 and 3|Promise {<fulfilled>: 2} and Promise {<fulfilled>: 3}|indeterminate|None of the above',
-            correctOption: '2 and 3',
+            options: '3 and 4|Promise {<fulfilled>: 3} and Promise {<fulfilled>: 4}|indeterminate|None of the above',
+            correctOption: '3 and 4',
             quizId: 3,
-            points: 1
+            points: 3
         },
         {
             id: 13,
@@ -200,7 +203,7 @@ export const mockData = {
             options: '[1, 2, 4] and [7, 8, 9]|[7, 8, 9] and [1, 2, 4]|[1, 2, 4, 7, 8, 9] and [1, 2]|[7, 8, 9] and [1, 2]',
             correctOption: '[7, 8, 9] and [1, 2, 4]',
             quizId: 3,
-            points: 1
+            points: 3
         },
         {
             id: 14,
@@ -212,16 +215,16 @@ export const mockData = {
                         let curriedSum = sum();<br>
                         curriedSum(10)(10);<br>
                         curriedSum(20)(20);`,
-            options: '20|40|20 and 40| compiler error',
+            options: '20|40|20 and 40|compiler error',
             correctOption: '40',
             quizId: 3,
-            points: 1
+            points: 3
         },
         {
             id: 15,
             question: `Find the output for the below code:<br>
                         const user = {<br>
-                            &nbsp;&nbsp;name: 'Lily',<br>
+                            &nbsp;&nbsp;name: 'Ratan',<br>
                             &nbsp;&nbsp;place: {<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;city: 'Siliguri',<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;country: 'India'<br>
@@ -234,7 +237,7 @@ export const mockData = {
             options: 'undefined|{ city: \'Siliguri\', country: \'India\' }|ReferenceError: place is not defined|null',
             correctOption: 'ReferenceError: place is not defined',
             quizId: 3,
-            points: 1
+            points: 3
         }
     ]
 }
