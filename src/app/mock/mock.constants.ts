@@ -46,13 +46,13 @@ export const mockData = {
         },
         {
             id: 4,
-            question: `Fill in the blanks such that img_large.jpg and img_medium.jpg get displayed for large(>=992px) and medium(768px to 991px) screen widths respectively.<br>
+            question: `Choose the option such that img_large.jpg and img_medium.jpg get displayed for large(>=992px) and medium(768px to 991px) screen widths respectively.<br>
             &lt;picture&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="img_large.jpg"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;source media="(min-width:____)" srcset="img_medium.jpg"&gt;<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;img src="img_small.jpg" alt="small image" style="width:auto;"&gt;<br>
             &lt;/picture&gt;`,
-            options: `768px, 992px|992px, 768px|Both of the above|None of the above`,
+            options: `768px, 992px|992px, 768px|Either of the above|None of the above`,
             correctOption: '992px, 768px',
             quizId: 1,
             points: 1
@@ -79,8 +79,8 @@ export const mockData = {
         },
         {
             id: 7,
-            question: `What is the color of the emphasized text?
-                        <br>&lt;!DOCTYPE html&gt;<br>
+            question: `What is the color of the emphasized text?<br>
+                        &lt;!DOCTYPE html&gt;<br>
                         &lt;html&gt;<br><br>
                         &lt;head&gt;<br>
                             &nbsp;&nbsp;&lt;style&gt;<br>
@@ -122,8 +122,8 @@ export const mockData = {
         },
         {
             id: 10,
-            question: `Fill in the blank with a pseudo-class that would affect only the 2nd paragraph.
-                        <br>&lt;!DOCTYPE html&gt;<br>
+            question: `Select the pseudo-class that would affect only the 2nd paragraph.<br>
+                        &lt;!DOCTYPE html&gt;<br>
                         &lt;html&gt;<br><br>
                         &lt;head&gt;<br>
                             &nbsp;&nbsp;&lt;style&gt;<br>
@@ -160,7 +160,8 @@ export const mockData = {
         },
         {
             id: 12,
-            question: `function* generate() {<br>
+            question: `What values go in the output blanks?<br>
+                        function* generate() {<br>
                         &nbsp;&nbsp;yield 1;<br>
                         &nbsp;&nbsp;yield 2;<br>
                         &nbsp;&nbsp;yield Promise.resolve(3);<br>
@@ -173,14 +174,13 @@ export const mockData = {
                                 &nbsp;&nbsp;&nbsp;&nbsp;console.log(num);<br>
                             &nbsp;&nbsp;}<br>
                         })();<br><br>
-                        // OUTPUT<br>
-                        // 1<br>
-                        // 2<br>
-                        // ______<br>
-                        // ______<br>
-                        // 5<br><br>
-
-                        Fill in with the right output values.
+                        /* OUTPUT<br>
+                        1<br>
+                        2<br>
+                        ______<br>
+                        ______<br>
+                        5 */
+                        
             `,
             options: '3 and 4|Promise {<fulfilled>: 3} and Promise {<fulfilled>: 4}|indeterminate|None of the above',
             correctOption: '3 and 4',
@@ -189,7 +189,8 @@ export const mockData = {
         },
         {
             id: 13,
-            question: `function getValue(arr) {<br>
+            question: `What do the console statements print?<br>
+                        function getValue(arr) {<br>
                             &nbsp;&nbsp;arr.push(4);<br>
                             &nbsp;&nbsp;arr = [7, 8, 9];<br>
                             &nbsp;&nbsp;console.log(arr);<br>
@@ -198,8 +199,7 @@ export const mockData = {
                         var val = [1, 2];<br>
                         getValue(val);<br>
                         console.log(val);<br><br>
-                        
-                        What do the console statements print?`,
+                        `,
             options: '[1, 2, 4] and [7, 8, 9]|[7, 8, 9] and [1, 2, 4]|[1, 2, 4, 7, 8, 9] and [1, 2]|[7, 8, 9] and [1, 2]',
             correctOption: '[7, 8, 9] and [1, 2, 4]',
             quizId: 3,
@@ -207,7 +207,7 @@ export const mockData = {
         },
         {
             id: 14,
-            question: `What is the output of the below code?<br>
+            question: `What is the output of the following code?<br>
                         function sum() {<br>
                         &nbsp;&nbsp;return num1 => num2 => num1 + num2;<br>
                         }<br><br>
@@ -215,25 +215,23 @@ export const mockData = {
                         let curriedSum = sum();<br>
                         curriedSum(10)(10);<br>
                         curriedSum(20)(20);`,
-            options: '20|40|20 and 40|compiler error',
+            options: '20|40|20 and 40|Compiler error',
             correctOption: '40',
             quizId: 3,
             points: 3
         },
         {
             id: 15,
-            question: `Find the output for the below code:<br>
-                        const user = {<br>
+            question: `const user = {<br>
                             &nbsp;&nbsp;name: 'Ratan',<br>
                             &nbsp;&nbsp;place: {<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;city: 'Siliguri',<br>
                                 &nbsp;&nbsp;&nbsp;&nbsp;country: 'India'<br>
                             &nbsp;&nbsp;}<br>
-                        };<br><br>
-
+                        };<br>
                         const { name, place: { city, country } } = user;<br><br>
-
-                        console.log(place);`,
+                        console.log(place);<br><br>
+                        What does the above console statement print?`,
             options: 'undefined|{ city: \'Siliguri\', country: \'India\' }|ReferenceError: place is not defined|null',
             correctOption: 'ReferenceError: place is not defined',
             quizId: 3,
